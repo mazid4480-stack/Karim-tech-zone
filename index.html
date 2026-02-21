@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karim Tech Zone</title><style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6fb;
+    margin:0;
+    text-align:center;
+}
+
+/* Top Bar */
+.topbar{
+    background:#111;
+    color:white;
+    padding:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.profile-btn{
+    background:#673ab7;
+    color:white;
+    padding:8px 14px;
+    border-radius:6px;
+    text-decoration:none;
+    font-size:14px;
+}
+
+/* Popup */
+.popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.popup-box{
+    background:white;
+    padding:25px;
+    width:90%;
+    max-width:400px;
+    border-radius:12px;
+}
+
+.video-popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.btn{
+    display:block;
+    margin:10px auto;
+    padding:12px;
+    width:90%;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+    color:white;
+}
+
+.join{background:#0088cc;}
+.admin{background:#28a745;}
+.ok{background:#ff9800;}
+.watch{background:#e91e63;}
+.skip{background:#4caf50;}
+
+.notice{
+    background:#fff3cd;
+    color:#856404;
+    margin:15px;
+    padding:12px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    padding:15px;
+}
+
+.live-btn{
+    background:#ff3b3b;
+    color:white;
+    padding:12px;
+    border-radius:8px;
+    text-decoration:none;
+    display:block;
+}
+</style></head><body><!-- 🔐 Top Bar --><div class="topbar">
+    <div><b>Karim Tech Zone</b></div>
+    <a class="profile-btn" href="#" onclick="gmailAlert()">🔐 My Profile</a>
+</div><!-- Welcome Popup --><div class="popup" id="popup">
+  <div class="popup-box">
+    <h3>Karim Tech Zone এ স্বাগতম</h3>
+    <p>
+    আপনাকে আমাদের মাঝে পেয়ে আমরা সত্যিই আনন্দিত।<br>
+    এখানে কোনো ইনভেস্ট করতে হয় না।
+    </p><button class="btn join"
+  onclick="window.open('https://t.me/social_workars4')">
+  Join Channel
+</button>
+
+<button class="btn admin"
+  onclick="window.open('https://t.me/MD_Rezual_Karim')">
+  Admin
+</button>
+
+<button class="btn ok" onclick="closePopup()">OK</button>
+
+  </div>
+</div><!-- Video Popup --><div class="video-popup" id="videoPopup">
+  <div class="popup-box">
+    <h3>⚠️ Notice</h3>
+    <p>আইডি জমা দিতে সমস্যা হলে ভিডিওটি দেখুন</p><button class="btn watch" onclick="watchVideo()">ভিডিও দেখেন</button>
+<button class="btn skip" onclick="openForm()">ভিডিও দেখবো না</button>
+
+  </div>
+</div><!-- Notice --><div class="notice">
+📢 আজকে কি ধরনের একাউন্ট নিচ্ছেন — নিচ থেকে সিলেক্ট করুন
+</div><!-- Buttons --><div class="grid"><a class="live-btn" onclick="showVideoPopup('https://forms.gle/Dbprt46GW2HF9miJ7')">1. 0+ friend 2fa Webmail</a>
+<a class="live-btn" onclick="showVideoPopup('https://forms.gle/tcdnRu3KtKxzVuCd7')">2. 0+ friend 2fa Number</a>
+<a class="live-btn" onclick="showVideoPopup('https://forms.gle/bvqKjUqjpDSeUF9e8')">3. 30+ friend 2fa Webmail</a>
+<a class="live-btn" onclick="showVideoPopup('https://forms.gle/iaDwAC6HKbC85PCN8')">4. 30+ friend Cookies</a>
+<a class="live-btn" onclick="showVideoPopup('https://forms.gle/gZd1Rke3AAXBjxLG6')">5. Instagram 0+ friend</a>
+<a class="live-btn" onclick="showVideoPopup('https://forms.gle/CpSK57CRGDxWoZcw6')">6. PC Clone 1000×</a>
+<a class="live-btn" onclick="showVideoPopup('https://forms.gle/nytgsp6KG25x9MH6A')">7. PC Clone 6155×</a>
+<a class="live-btn" onclick="showVideoPopup('https://forms.gle/4Stf1tZ1XWV2uHJJ6')">8. PC Clone 1000× 2FA</a>
+<a class="live-btn" onclick="showVideoPopup('https://forms.gle/o4EtRoxCQ88CMEXFA')">9. 30+ friend 2FA Hotmail</a>
+<a class="live-btn" onclick="showVideoPopup('https://forms.gle/bx4MUQMz1guvohHeA')">10. Instagram cookies</a>
+<a class="live-btn" onclick="showVideoPopup('https://forms.gle/MD7sWdWzx6H8mZu18')">11. 0+ Cookies Anymail</a>
+<a class="live-btn" onclick="showVideoPopup('https://forms.gle/cq3oFEaTgcHuNZhM8')">12. 0+ Number Cookies</a>
+<a class="live-btn" onclick="showVideoPopup('https://forms.gle/KVEoK7yG8ZEwemyi8')">13. 0+ Cookies Webmail</a>
+
+</div><script>
+let currentForm = "";
+
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+}
+
+function gmailAlert(){
+    alert("⚠️ আপনি যেই জিমেইল দিয়ে এজেন্ট কোড নিয়েছেন সেই জিমেইল লগিন করবেন");
+    window.open("https://accounts.google.com/");
+}
+
+function showVideoPopup(link){
+    currentForm = link;
+    document.getElementById("videoPopup").style.display="flex";
+}
+
+function watchVideo(){
+    window.open("VIDEO_LINK_HERE");
+}
+
+function openForm(){
+    document.getElementById("videoPopup").style.display="none";
+    window.open(currentForm);
+}
+</script></body>
+</html>
