@@ -1,195 +1,203 @@
-<!DOCTYPE html><html lang="bn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html><html lang="bn">  <head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
 <title>Karim Tech Zone</title><style>
-body{
-    font-family: Arial, sans-serif;
-    margin:0;
-    text-align:center;
-    background:#f4f6fb; /* ✅ আগের background */
+/* ===== LIVE DATE TIME ===== */
+.datetime-bar{
+  background:#111;
+  color:#00e5ff;
+  font-weight:bold;
+  padding:6px 10px;
+  font-size:14px;
+  letter-spacing:.5px;
 }
+body{font-family:Arial;margin:0;text-align:center;background:#f4f6fb}  /* popup */
+.popup{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;justify-content:center;align-items:center;z-index:999}
+.popup-box{background:#fff;padding:25px;width:90%;max-width:400px;border-radius:12px}
 
-/* Welcome Popup */
-.popup{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.6);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:999;
-}
+/* topbar */
+.topbar{background:linear-gradient(45deg,#111,#673ab7);color:#fff;padding:14px;display:flex;justify-content:space-between;align-items:center}
+.profile-btn{background:#ff9800;color:#fff;padding:8px 16px;border-radius:25px;text-decoration:none}
 
-.popup-box{
-    background:white;
-    padding:25px;
-    width:90%;
-    max-width:400px;
-    border-radius:12px;
-}
+/* notice */
+.notice{background:#fff3cd;color:#856404;margin:12px;padding:12px;border-radius:10px;font-weight:bold}
 
-/* VIP Topbar */
-.topbar{
-    background:linear-gradient(45deg,#111,#673ab7);
-    color:white;
-    padding:14px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+/* blink */
+@keyframes blink{50%{opacity:.35}}
+.open-light{color:#00c853;animation:blink 1s infinite}
 
-.profile-btn{
-    background:#ff9800;
-    color:white;
-    padding:8px 16px;
-    border-radius:25px;
-    text-decoration:none;
-    font-size:14px;
-}
+/* status */
+.status{font-size:18px;font-weight:bold}
+.countdown{margin-bottom:10px;font-weight:bold}
 
-/* Notice */
-.notice{
-    background:#fff3cd;
-    color:#856404;
-    margin:12px;
-    padding:12px;
-    border-radius:10px;
-    font-weight:bold;
-}
-
-/* Status */
-.status{
-    font-size:18px;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-
-/* Grid */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-    padding:12px;
-}
-
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:12px}
 .live-btn{
-    background:linear-gradient(45deg,#ff3b3b,#ff6a00);
-    color:white;
-    padding:14px;
-    border-radius:14px;
-    text-decoration:none;
-    display:block;
-    font-weight:bold;
-    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+background:linear-gradient(45deg,#ff3b3b,#ff6a00);
+color:#fff;padding:14px;border-radius:14px;text-decoration:none;
+display:block;font-weight:bold;transition:.15s;
+box-shadow:0 4px 12px rgba(0,0,0,.2)
+}
+.live-btn.disabled{background:#9e9e9e!important;pointer-events:none;opacity:.6}
+.live-btn:active{transform:scale(.94)}
+
+/* buttons */
+.btn{display:block;margin:10px auto;padding:12px;width:90%;border:none;border-radius:8px;font-size:16px;color:#fff}
+.join{background:#0088cc}.admin{background:#28a745}.ok{background:#ff9800}
+.watch{background:#e91e63}.skip{background:#4caf50}
+
+/* video popup */
+.video-popup{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;justify-content:center;align-items:center;z-index:1000}
+
+/* ===== ULTRA BOTTOM ===== */
+.bottom-bar{
+position:fixed;bottom:10px;left:50%;transform:translateX(-50%);
+width:94%;max-width:520px;padding:10px;display:flex;gap:8px;
+backdrop-filter:blur(18px);background:rgba(0,0,0,.65);
+border-radius:20px;border:1px solid rgba(255,255,255,.18);
+box-shadow:0 10px 35px rgba(0,0,0,.45);
+z-index:9999;transition:.35s
+}
+.bottom-bar.hide{transform:translate(-50%,120%);opacity:0}
+
+.bottom-btn{
+flex:1;color:#fff;text-decoration:none;font-size:13px;font-weight:bold;
+padding:11px 6px;border-radius:14px;text-align:center;
+background:linear-gradient(135deg,#ff512f,#dd2476);
+position:relative;overflow:hidden;
+box-shadow:0 0 12px rgba(255,82,82,.7),inset 0 0 6px rgba(255,255,255,.25);
+animation:neonPulse 2.2s infinite;transition:.18s
+}
+@keyframes neonPulse{
+0%,100%{box-shadow:0 0 12px rgba(255,82,82,.7)}
+50%{box-shadow:0 0 22px rgba(255,82,82,1)}
+}
+.bottom-btn:active{transform:scale(.88)}
+.bottom-btn:hover{transform:translateY(-3px)}
+</style></head><body><!-- welcome --><div class="popup" id="popup">
+
+ <div class="popup-box">  
+  <h3>Karim Tech Zone এ স্বাগতম</h3>  
+  <p>এখানে কোনো ইনভেস্ট করতে হয় না।</p>  
+  <button class="btn join" onclick="window.open('https://t.me/social_workars4')">Join Channel</button>  
+  <button class="btn admin" onclick="window.open('https://t.me/MD_Rezual_Karim')">Admin</button>  
+  <button class="btn ok" onclick="closePopup()">OK</button>  
+ </div>  
+</div><!-- topbar -->
+<div class="datetime-bar" id="dateTimeBar">
+📅 Loading date & time...
+</div> <div class="topbar">  
+ <b>Karim Tech Zone</b>  
+ <a class="profile-btn" onclick="gmailLogin()">🔐 My Profile</a>  
+</div><div class="notice">📢 আজকে নেওয়া হচ্ছে ৩ ধরনের একাউন্ট (1) 0 plus number 2FA (2) 0 plus 2FA INSTAGRAM (3) 30 plus hotmail cookies — নিচ বটন থেকে সিলেক্ট করুন যেই একাউন্ট গুলো আমার নিতেছি সেই গুলো</div>  
+<div class="status" id="statusText">Checking...</div>  
+<div class="countdown" id="countdownText"></div><!-- buttons --><div class="grid">  
+<a class="live-btn" onclick="handleClick('https://forms.gle/Dbprt46GW2HF9miJ7')">1. 0+ friend 2fa Webmail</a>  
+<a class="live-btn" onclick="handleClick('https://forms.gle/tcdnRu3KtKxzVuCd7')">2. 0+ friend 2fa Number</a>  
+<a class="live-btn" onclick="handleClick('https://forms.gle/bvqKjUqjpDSeUF9e8')">3. 30+ friend 2fa Webmail</a>  
+<a class="live-btn" onclick="handleClick('https://forms.gle/iaDwAC6HKbC85PCN8')">4. 30+ friend Cookies</a>  
+<a class="live-btn" onclick="handleClick('https://forms.gle/gZd1Rke3AAXBjxLG6')">5. Instagram 0+</a>  
+<a class="live-btn" onclick="handleClick('https://forms.gle/CpSK57CRGDxWoZcw6')">6. PC Clone 1000×</a>  
+<a class="live-btn" onclick="handleClick('https://forms.gle/nytgsp6KG25x9MH6A')">7. PC Clone 6155×</a>  
+<a class="live-btn" onclick="handleClick('https://forms.gle/4Stf1tZ1XWV2uHJJ6')">8. PC Clone 1000× 2FA</a>  
+<a class="live-btn" onclick="handleClick('https://forms.gle/o4EtRoxCQ88CMEXFA')">9. 30+ friend 2FA Hotmail</a>  
+<a class="live-btn" onclick="handleClick('https://forms.gle/bx4MUQMz1guvohHeA')">10. Instagram cookies</a>  
+<a class="live-btn" onclick="handleClick('https://forms.gle/MD7sWdWzx6H8mZu18')">11. 0+ Cookies Anymail</a>  
+<a class="live-btn" onclick="handleClick('https://forms.gle/cq3oFEaTgcHuNZhM8')">12. 0+ Number Cookies</a>  
+<a class="live-btn" onclick="handleClick('https://forms.gle/KVEoK7yG8ZEwemyi8')">13. 0+ Cookies Webmail</a>  
+</div><!-- video popup --><div class="video-popup" id="videoPopup">  
+ <div class="popup-box">  
+  <h3>⚠️ Notice</h3>  
+  <p>আইডি জমা দিতে সমস্যা হলে ভিডিওটি দেখুন</p>  
+  <button class="btn watch" onclick="watchVideo()">ভিডিও দেখেন</button>  
+  <button class="btn skip" onclick="openForm()">ভিডিও দেখবো না</button>  
+ </div>  
+</div><!-- bottom bar --><div class="bottom-bar">  
+ <a class="bottom-btn" href="https://youtube.com/@karim_tech_zone?si=Q6XXLmrH9jQFs5-Y" target="_blank">📺 YouTube Live</a>  
+ <a class="bottom-btn" href="https://t.me/social_workars4" target="_blank">📢 Telegram Channel</a>  
+ <a class="bottom-btn" href="https://t.me/social_workars1_bot" target="_blank">💳 Payment Bot</a>  
+</div><audio id="openSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>  <script>
+/* ===== LIVE DATE TIME ===== */
+function updateDateTime(){
+  const now = new Date();
+
+  const optionsDate = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  };
+
+  const dateStr = now.toLocaleDateString('en-GB', optionsDate);
+  const timeStr = now.toLocaleTimeString();
+
+  document.getElementById("dateTimeBar").innerHTML =
+    `📅 ${dateStr} | ⏰ ${timeStr}`;
 }
 
-/* iframe */
-#formFrame{
-    width:100%;
-    height:650px;
-    border:none;
-    display:none;
-}
-
-/* Buttons */
-.btn{
-    display:block;
-    margin:10px auto;
-    padding:12px;
-    width:90%;
-    border:none;
-    border-radius:8px;
-    font-size:16px;
-    cursor:pointer;
-    color:white;
-}
-
-.join{background:#0088cc;}
-.admin{background:#28a745;}
-.ok{background:#ff9800;}
-</style></head><body><!-- ✅ Welcome Popup --><div class="popup" id="popup">
-  <div class="popup-box">
-    <h3>Karim Tech Zone এ স্বাগতম</h3>
-    <p>
-    আপনাকে আমাদের মাঝে পেয়ে আমরা সত্যিই আনন্দিত।<br>
-    এখানে কোনো ইনভেস্ট করতে হয় না।
-    </p><button class="btn join"
-  onclick="window.open('https://t.me/social_workars4')">
-  Join Channel
-</button>
-
-<button class="btn admin"
-  onclick="window.open('https://t.me/MD_Rezual_Karim')">
-  Admin
-</button>
-
-<button class="btn ok" onclick="closePopup()">OK</button>
-
-  </div>
-</div><!-- Topbar --><div class="topbar">
-  <b>Karim Tech Zone</b>
-  <a class="profile-btn" onclick="gmailLogin()">🔐 My Profile</a>
-</div><!-- Notice --><div class="notice">
-📢 ২২-০২-২০২৬ আজকে নেওয়া হচ্ছে 0 plus friend number 2fa / 30 plus friend 2fa Hotmail cookies / 0 plus instagram 2fa anymail নিতেছি — লিঙ্ক চালো হবে দুপুর ২টা সময় এবং বন্ধ হবে ৫টা সময় ২টা থেকে ৫টা পযর্ন্ত যেই কোনো সময় একাউন্ট জমা দিতেই পারবেন ধন্যবাদ
-</div><!-- Status --><div class="status" id="statusText">Checking time...</div><!-- Buttons --><div class="grid"><a class="live-btn" onclick="handleClick('https://forms.gle/Dbprt46GW2HF9miJ7')">1. 0+ friend 2fa Webmail</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/tcdnRu3KtKxzVuCd7')">2. 0+ friend 2fa Number</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/bvqKjUqjpDSeUF9e8')">3. 30+ friend 2fa Webmail</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/iaDwAC6HKbC85PCN8')">4. 30+ friend Cookies</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/gZd1Rke3AAXBjxLG6')">5. Instagram 0+ 2fa</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/CpSK57CRGDxWoZcw6')">6. PC Clone 1000× cookies</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/nytgsp6KG25x9MH6A')">7. PC Clone 6155× cookies</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/4Stf1tZ1XWV2uHJJ6')">8. PC Clone 1000× 2FA Hotmail</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/o4EtRoxCQ88CMEXFA')">9. 30+ friend 2FA Hotmail</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/bx4MUQMz1guvohHeA')">10. 0 plus friend Instagram cookies</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/MD7sWdWzx6H8mZu18')">11. 0+ Cookies Anymail</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/cq3oFEaTgcHuNZhM8')">12. 0+ Number Cookies</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/KVEoK7yG8ZEwemyi8')">13. 0+ Cookies Webmail</a>
-
-</div><iframe id="formFrame"></iframe><script>
-/* Popup */
-function closePopup(){
-  document.getElementById("popup").style.display="none";
-}
-
-/* Time settings */
-const OPEN_HOUR=14;
-const CLOSE_HOUR=17;
-
-function isOpenTime(){
-  const h=new Date().getHours();
-  return h>=OPEN_HOUR && h<CLOSE_HOUR;
-}
-
-function updateStatus(){
-  const s=document.getElementById("statusText");
-  if(isOpenTime()){
-    s.innerHTML="🟢 Form Status: OPEN";
-    s.style.color="green";
-  }else{
-    s.innerHTML="🔴 Form Status: CLOSED (Open 2PM - 5PM)";
-    s.style.color="red";
-  }
-}
-setInterval(updateStatus,1000);
-updateStatus();
-
-function handleClick(link){
-  if(!isOpenTime()){
-    alert("⛔ এখন বন্ধ আছে। ফর্ম খোলা থাকবে 2PM - 5PM");
-    return;
-  }
-  const f=document.getElementById("formFrame");
-  f.style.display="block";
-  f.src=link;
-  window.scrollTo(0,document.body.scrollHeight);
-}
-
-function gmailLogin(){
-  window.open("https://accounts.google.com/");
-}
-</script></body>
-</html>
+setInterval(updateDateTime,1000);
+updateDateTime();
+const OPEN_TIME="14:00";  
+const CLOSE_TIME="17:00";  
+let wasOpen=false,currentForm="";  
+  
+/* helpers */  
+const toMin=t=>{const[a,b]=t.split(":").map(Number);return a*60+b};  
+const nowMin=()=>{const n=new Date();return n.getHours()*60+n.getMinutes()};  
+const isOpenTime=()=>{const n=nowMin();return n>=toMin(OPEN_TIME)&&n<toMin(CLOSE_TIME)};  
+  
+/* countdown */  
+function updateCountdown(){  
+ const now=new Date(),nowM=nowMin(),openM=toMin(OPEN_TIME),closeM=toMin(CLOSE_TIME);  
+ let diff=isOpenTime()?((closeM-nowM)*60-now.getSeconds()):((openM-nowM)*60-now.getSeconds());  
+ if(diff<0) diff+=24*3600;  
+ const h=Math.floor(diff/3600),m=Math.floor((diff%3600)/60),s=diff%60;  
+ document.getElementById("countdownText").innerHTML=  
+ isOpenTime()?`⏳ Close in: ${h}h ${m}m ${s}s`:`⏳ Open in: ${h}h ${m}m ${s}s`;  
+}  
+  
+/* status */  
+function updateStatus(){  
+ const status=document.getElementById("statusText");  
+ const buttons=document.querySelectorAll(".live-btn");  
+ const open=isOpenTime();  
+ if(open){  
+  status.innerHTML='🟢 <span class="open-light">LIVE OPEN</span>';  
+  buttons.forEach(b=>b.classList.remove("disabled"));  
+  if(!wasOpen){document.getElementById("openSound").play().catch(()=>{});wasOpen=true;}  
+ }else{  
+  status.innerHTML=`🔴 CLOSED (${OPEN_TIME}-${CLOSE_TIME})`;  
+  buttons.forEach(b=>b.classList.add("disabled"));  
+  wasOpen=false;  
+ }  
+}  
+setInterval(()=>{updateStatus();updateCountdown()},1000);  
+updateStatus();updateCountdown();  
+  
+/* click */  
+function handleClick(link){  
+ if(!isOpenTime()){alert(`⛔ এখন বন্ধ আছে। ফর্ম খোলা থাকবে ${OPEN_TIME}-${CLOSE_TIME}`);return;}  
+ currentForm=link;  
+ document.getElementById("videoPopup").style.display="flex";  
+}  
+function watchVideo(){window.open("https://t.me/social_workars4/1065")}  
+function openForm(){document.getElementById("videoPopup").style.display="none";window.location.href=currentForm}  
+  
+/* other */  
+function closePopup(){document.getElementById("popup").style.display="none"}  
+function gmailLogin(){window.open("https://accounts.google.com/")}  
+  
+/* bottom hide */  
+let lastScroll=0;  
+window.addEventListener("scroll",()=>{  
+ const bar=document.querySelector(".bottom-bar");  
+ const current=window.pageYOffset;  
+ current>lastScroll?bar.classList.add("hide"):bar.classList.remove("hide");  
+ lastScroll=current;  
+});  
+  
+/* click sound */  
+const clickSound=new Audio("https://actions.google.com/sounds/v1/ui/click.ogg");  
+document.querySelectorAll(".bottom-btn").forEach(btn=>{  
+ btn.addEventListener("click",()=>{clickSound.currentTime=0;clickSound.play().catch(()=>{})});  
+});  
+</script></body>  </html>
