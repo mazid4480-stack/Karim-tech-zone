@@ -210,7 +210,7 @@ onclick="window.open('https://t.me/MD_Rezual_Karim')">
 </div><div class="datetime-bar" id="dateTimeBar">📅 Loading...</div><div class="topbar">
  <b>Karim Tech Zone</b>
  <a class="profile-btn" onclick="gmailLogin()">🔐 My Profile</a>
-</div><div class="notice">📢 আসকে আমার নিতেছি ৩ ধরনের একাউন্ট (1) 0 plus friend number 2fa (2) 0 plus instagram 2fa (3) 30 plus hotmail 2fa cookies আপনি একাউন্ট দুপুর ২টা থেকে ৫টা পযর্ন্ত যেই কোনো সময় একাউন্ট জমা দিতেই পারবেন </div><button class="btn ok" onclick="showTodayPrice()">💰 আজকের একাউন্ট দাম</button>
+</div><div class="notice">📢 আসকে আমার নিতেছি ৩ ধরনের একাউন্ট 1* 0 plus friend number 2fa 2* 0 plus instagram 2fa 3* 30 plus hotmail 2fa cookies আপনি একাউন্ট দুপুর ২টা থেকে ৫টা পযর্ন্ত যেই কোনো সময় একাউন্ট জমা দিতেই পারবেন </div><button class="btn ok" onclick="showTodayPrice()">💰 আজকের একাউন্ট দাম</button>
 
 <div class="status" id="statusText">Checking...</div>
 <div class="countdown" id="countdownText"></div><!-- ===== BUTTONS ===== --><div class="grid">
@@ -305,12 +305,32 @@ function applyActiveColors(){
 
 /* click */
 function handleClick(link){
- if(!isOpenTime()){
-   alert("⛔ এখন বন্ধ আছে");
-   return;
- }
- currentForm=link;
- document.getElementById("videoPopup").style.display="flex";
+
+  // ⛔ সময় বন্ধ হলে
+  if(!isOpenTime()){
+    alert("⛔ এখন ফর্ম বন্ধ আছে");
+    return;
+  }
+
+  // 🔍 কোন বাটন চাপা হয়েছে বের করা
+  const buttons=document.querySelectorAll(".live-btn");
+  let clickedId=0;
+
+  buttons.forEach((btn,i)=>{
+    if(btn===event.currentTarget){
+      clickedId=i+1;
+    }
+  });
+
+  // ❌ যদি active না হয় → তোমার মেসেজ
+  if(!ACTIVE_IDS.includes(clickedId)){
+    alert("❌ এই একাউন্ট এখন বন্ধ। কালার করা বাটন গুলো টিপ দেন — এই গুলো চালু আছে, সেই একাউন্ট গুলো জমা দেন।");
+    return;
+  }
+
+  // ✅ চালু হলে আগের মতো
+  currentForm=link;
+  document.getElementById("videoPopup").style.display="flex";
 }
 function watchVideo(){window.open("https://t.me/social_workars4/1065")}
 function openForm(){
@@ -336,4 +356,4 @@ function gmailLogin(){window.open("https://accounts.google.com/")}
 setInterval(()=>{updateStatus();updateCountdown();applyActiveColors()},1000);
 updateStatus();updateCountdown();applyActiveColors();
 </script></body>
-           </html>
+  </html>
