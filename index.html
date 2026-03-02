@@ -1,83 +1,92 @@
-<!DOCTYPE html><html lang="bn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karim Tech Zone</title><style>
-/* ===== IMPORTANT FIX ===== */
-/* 🔥 bottom bar ঢাকবে না */
-body{
-  font-family:Arial;
-  margin:0;
-  text-align:center;
-  background:#f4f6fb;
-  padding-bottom:120px; /* ⭐ খুব গুরুত্বপূর্ণ — height বাড়াতে পারো */
-}
-
-/* ===== LIVE DATE TIME ===== */
-.datetime-bar{
-  background:#111;
-  color:#00e5ff;
-  font-weight:bold;
-  padding:6px 10px;
-  font-size:14px;
-}
-
-/* ===== WELCOME ===== */
-.welcome-popup{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:99999;
-}
-.welcome-box{
-  background:#fff;
-  padding:24px;
-  width:90%;
-  max-width:380px;
-  border-radius:12px;
-}
-.welcome-btn{
-  display:block;
-  width:100%;
-  margin-top:10px;
-  padding:11px;
-  border:none;
-  border-radius:8px;
-  color:#fff;
-  font-weight:bold;
-}
-.welcome-join{background:#0088cc}
-.welcome-admin{background:#28a745}
-.welcome-ok{background:#ff9800}
-
-/* ===== TOPBAR ===== */
-.topbar{
-  background:linear-gradient(45deg,#111,#673ab7);
-  color:#fff;
-  padding:14px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.profile-btn{
-  background:#ff9800;
-  color:#fff;
-  padding:8px 16px;
-  border-radius:25px;
-  text-decoration:none;
-}
+<!DOCTYPE html><html lang="bn">        <head>          <meta charset="UTF-8">            <meta name="viewport" content="width=device-width, initial-scale=1.0">              <title>Karim Tech Zone</title><style>              
+/* ===== IMPORTANT FIX ===== */              
+/* 🔥 bottom bar ঢাকবে না */              
+body{              
+  font-family:Arial;              
+  margin:0;              
+  text-align:center;              
+  background:#f4f6fb;              
+  padding-bottom:120px; /* ⭐ খুব গুরুত্বপূর্ণ — height বাড়াতে পারো */              
+}        /* ===== LIVE DATE TIME ===== */      
+.datetime-bar{      
+background:#111;      
+color:#00e5ff;      
+font-weight:bold;      
+padding:6px 10px;      
+font-size:14px;      
+}  /* ===== WELCOME ===== */    
+.welcome-popup{    
+position:fixed;    
+inset:0;    
+background:rgba(0,0,0,.6);    
+display:flex;    
+justify-content:center;    
+align-items:center;    
+z-index:99999;    
+}    
+.welcome-box{    
+background:#fff;    
+padding:24px;    
+width:90%;    
+max-width:380px;    
+border-radius:12px;    
+}    
+.welcome-btn{    
+display:block;    
+width:100%;    
+margin-top:10px;    
+padding:11px;    
+border:none;    
+border-radius:8px;    
+color:#fff;    
+font-weight:bold;    
+}    
+.welcome-join{background:#0088cc}    
+.welcome-admin{background:#28a745}    
+.welcome-ok{background:#ff9800}  /* ===== TOPBAR ===== */  
+.topbar{  
+background:linear-gradient(45deg,#111,#673ab7);  
+color:#fff;  
+padding:14px;  
+display:flex;  
+justify-content:space-between;  
+align-items:center;  
+}  
+.profile-btn{  
+background:#ff9800;  
+color:#fff;  
+padding:8px 16px;  
+border-radius:25px;  
+text-decoration:none;  
+}  
 
 /* notice */
 .notice{
-  background:#fff3cd;
-  color:#856404;
   margin:12px;
   padding:12px;
   border-radius:10px;
   font-weight:bold;
+  color:#fff;
+  background:linear-gradient(90deg, #ff0000, #ff9800, #e91e63, #9c27b0, #ff0000);
+  background-size:400% 100%;
+  border:2px solid #fff;
+  animation: noticeBg 4s linear infinite, noticeGlow 1.5s infinite alternate;
+}
+
+@keyframes noticeBg {
+  0% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes noticeGlow {
+  0% {
+    box-shadow: 0 0 8px #ff0000, 0 0 15px #ff9800;
+    border-color: #ff9800;
+  }
+  100% {
+    box-shadow: 0 0 20px #00e5ff, 0 0 35px #2979ff;
+    border-color: #00e5ff;
+  }
 }
 
 /* status */
@@ -86,36 +95,36 @@ body{
 
 /* grid */
 .grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-  padding:12px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+padding:12px;
 }
 .live-btn{
-  background:linear-gradient(45deg,#ff3b3b,#ff6a00);
-  color:#fff;
-  padding:14px;
-  border-radius:14px;
-  text-decoration:none;
-  display:block;
-  font-weight:bold;
-  box-shadow:0 4px 12px rgba(0,0,0,.2);
+background:linear-gradient(45deg,#ff3b3b,#ff6a00);
+color:#fff;
+padding:14px;
+border-radius:14px;
+text-decoration:none;
+display:block;
+font-weight:bold;
+box-shadow:0 4px 12px rgba(0,0,0,.2);
 }
 .live-off{
-  background:#bdbdbd!important;
-  box-shadow:none!important;
+background:#bdbdbd!important;
+box-shadow:none!important;
 }
 
 /* buttons */
 .btn{
-  display:block;
-  margin:10px auto;
-  padding:12px;
-  width:90%;
-  border:none;
-  border-radius:8px;
-  font-size:16px;
-  color:#fff;
+display:block;
+margin:10px auto;
+padding:12px;
+width:90%;
+border:none;
+border-radius:8px;
+font-size:16px;
+color:#fff;
 }
 .watch{background:#e91e63}
 .skip{background:#4caf50}
@@ -123,151 +132,197 @@ body{
 
 /* video popup */
 .video-popup{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.7);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:1000;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.7);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:1000;
 }
 .popup-box{
-  background:#fff;
-  padding:25px;
-  width:90%;
-  max-width:400px;
-  border-radius:12px;
+background:#fff;
+padding:25px;
+width:90%;
+max-width:400px;
+border-radius:12px;
 }
 
 /* price popup */
 .price-popup{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:99999;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.6);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:99999;
 }
 .price-box2{
-  background:#fff;
-  padding:22px;
-  width:90%;
-  max-width:360px;
-  border-radius:12px;
+background:#fff;
+padding:22px;
+width:90%;
+max-width:360px;
+border-radius:12px;
 }
 .price-btn{
-  background:#ff9800;
-  color:#fff;
-  padding:10px 18px;
-  border:none;
-  border-radius:8px;
-  margin-top:10px;
+background:#ff9800;
+color:#fff;
+padding:10px 18px;
+border:none;
+border-radius:8px;
+margin-top:10px;
 }
 
 /* ===== BOTTOM BAR ===== */
 .bottom-bar{
-  position:fixed;
-  bottom:10px;
-  left:50%;
-  transform:translateX(-50%);
-  width:94%;
-  max-width:520px;
-  padding:10px;
-  display:flex;
-  gap:8px;
-  backdrop-filter:blur(18px);
-  background:rgba(0,0,0,.65);
-  border-radius:20px;
-  z-index:9999;
+position:fixed;
+bottom:10px;
+left:50%;
+transform:translateX(-50%);
+width:94%;
+max-width:520px;
+padding:10px;
+display:flex;
+gap:8px;
+backdrop-filter:blur(18px);
+background:rgba(0,0,0,.65);
+border-radius:20px;
+z-index:9999;
 }
 .bottom-btn{
-  flex:1;
-  color:#fff;
-  text-decoration:none;
-  font-size:13px;
-  font-weight:bold;
-  padding:11px 6px;
-  border-radius:14px;
-  background:linear-gradient(135deg,#ff512f,#dd2476);
+flex:1;
+color:#fff;
+text-decoration:none;
+font-size:13px;
+font-weight:bold;
+padding:11px 6px;
+border-radius:14px;
+background:linear-gradient(135deg,#ff512f,#dd2476);
 }
-</style></head><body><!-- ===== WELCOME ===== --><div class="welcome-popup" id="welcomePopup">
- <div class="welcome-box">
-  <h3>Karim Tech Zone এ স্বাগতম</h3>
-  <p>এখানে কোনো ইনভেস্ট করতে হয় না।</p><button class="welcome-btn welcome-join"
-onclick="window.open('https://t.me/social_workars4')">
-📢 Join Channel
-</button>
+</style></head><body> <div class="welcome-popup" id="welcomePopup">
 
-<button class="welcome-btn welcome-admin"
-onclick="window.open('https://t.me/MD_Rezual_Karim')">
-👤 Admin
-</button>
+ <div class="welcome-box">              
+  <h3>Karim Tech Zone এ স্বাগতম</h3>              
+  <p>এখানে কোনো ইনভেস্ট করতে হয় না।</p><button class="welcome-btn welcome-join"              
+onclick="window.open('https://t.me/social_workars4')">              
+📢 Join Channel              
+</button>        <button class="welcome-btn welcome-admin"              
+onclick="window.open('https://t.me/MD_Rezual_Karim')">      
+👤 Admin      
+</button>  <button class="welcome-btn welcome-ok" onclick="closeWelcome()">OK</button>   </div>              
+</div><div class="datetime-bar" id="dateTimeBar">📅 Loading...</div><div class="topbar">              
+ <b>Karim Tech Zone</b>              
+ <a class="profile-btn" onclick="gmailLogin()">🔐 My Profile</a>              
+</div><div class="notice">📢 আসকে থেকে নেওয়া হবে শুধুমাত্র 3 ধরনের একাউন্ট 0 plus friend 2fa number / 0 plus number cookies / 1000x pc clone id জমা দেওয়ার লিঙ্ক বিকাল ১টা সময় চালু করা হবে এবং রাত ৭টা সময় বন্ধ করা হবে মানি ২টা থেকে ৭টা পযর্ন্ত যেই কোনো সময় একাউন্ট জমা দিতেই পারবেন </div><button class="btn ok" onclick="showTodayPrice()">💰 আজকের একাউন্ট দাম</button>        <div class="status" id="statusText">Checking...</div>              
+<div class="countdown" id="countdownText"></div>
 
-<button class="welcome-btn welcome-ok" onclick="closeWelcome()">OK</button>
+<div class="grid">              
+<a class="live-btn" onclick="handleClick('https://forms.gle/Dbprt46GW2HF9miJ7')">1. 0+ friend 2fa Webmail</a>              
+<a class="live-btn" onclick="handleClick('https://forms.gle/tcdnRu3KtKxzVuCd7')">2. 0+ friend 2fa Number</a>              
+<a class="live-btn" onclick="handleClick('https://forms.gle/bvqKjUqjpDSeUF9e8')">3. 30+ friend 2fa Webmail</a>              
+<a class="live-btn" onclick="handleClick('https://forms.gle/iaDwAC6HKbC85PCN8')">4. 30+ friend Cookies</a>              
+<a class="live-btn" onclick="handleClick('https://forms.gle/gZd1Rke3AAXBjxLG6')">5. Instagram 0+ 2fa</a>              
+<a class="live-btn" onclick="handleClick('https://forms.gle/CpSK57CRGDxWoZcw6')">6. PC Clone 1000× cookies</a>              
+<a class="live-btn" onclick="handleClick('https://forms.gle/nytgsp6KG25x9MH6A')">7. PC Clone 6155× cookies</a>              
+<a class="live-btn" onclick="handleClick('https://forms.gle/4Stf1tZ1XWV2uHJJ6')">8. PC Clone 1000× 2FA Hotmail</a>              
+<a class="live-btn" onclick="handleClick('https://forms.gle/o4EtRoxCQ88CMEXFA')">9. 30+ friend 2FA Hotmail</a>              
+<a class="live-btn" onclick="handleClick('https://forms.gle/bx4MUQMz1guvohHeA')">10. Instagram cookies</a>              
+<a class="live-btn" onclick="handleClick('https://forms.gle/MD7sWdWzx6H8mZu18')">11. 0+ Cookies Anymail</a>              
+<a class="live-btn" onclick="handleClick('https://forms.gle/cq3oFEaTgcHuNZhM8')">12. 0+ Number Cookies</a>              
+<a class="live-btn" onclick="handleClick('https://forms.gle/KVEoK7yG8ZEwemyi8')">13. 0+ Cookies Webmail</a>              
+</div>
 
- </div>
-</div><div class="datetime-bar" id="dateTimeBar">📅 Loading...</div><div class="topbar">
- <b>Karim Tech Zone</b>
- <a class="profile-btn" onclick="gmailLogin()">🔐 My Profile</a>
-</div><div class="notice">📢 আসকে থেকে নেওয়া হবে শুধুমাত্র 3 ধরনের একাউন্ট 0 plus friend 2fa number / 0 plus number cookies / 1000x pc clone id জমা দেওয়ার লিঙ্ক বিকাল ২টা সময় চালু করা হবে এবং রাত ৭টা সময় বন্ধ করা হবে মানি ২টা থেকে ৭টা পযর্ন্ত যেই কোনো সময় একাউন্ট জমা দিতেই পারবেন </div><button class="btn ok" onclick="showTodayPrice()">💰 আজকের একাউন্ট দাম</button>
+<div class="video-popup" id="videoPopup">              
+ <div class="popup-box">              
+  <h3>⚠️ Notice</h3>              
+  <p>আইডি জমা দিতে সমস্যা হলে ভিডিওটি দেখুন</p>              
+  <button class="btn watch" onclick="watchVideo()">ভিডিও দেখেন</button>              
+  <button class="btn skip" onclick="openForm()">ভিডিও দেখবো না</button>              
+ </div>              
+</div>
 
-<div class="status" id="statusText">Checking...</div>
-<div class="countdown" id="countdownText"></div><!-- ===== BUTTONS ===== --><div class="grid">
-<a class="live-btn" onclick="handleClick('https://forms.gle/Dbprt46GW2HF9miJ7')">1. 0+ friend 2fa Webmail</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/tcdnRu3KtKxzVuCd7')">2. 0+ friend 2fa Number</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/bvqKjUqjpDSeUF9e8')">3. 30+ friend 2fa Webmail</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/iaDwAC6HKbC85PCN8')">4. 30+ friend Cookies</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/gZd1Rke3AAXBjxLG6')">5. Instagram 0+ 2fa</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/CpSK57CRGDxWoZcw6')">6. PC Clone 1000× cookies</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/nytgsp6KG25x9MH6A')">7. PC Clone 6155× cookies</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/4Stf1tZ1XWV2uHJJ6')">8. PC Clone 1000× 2FA Hotmail</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/o4EtRoxCQ88CMEXFA')">9. 30+ friend 2FA Hotmail</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/bx4MUQMz1guvohHeA')">10. Instagram cookies</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/MD7sWdWzx6H8mZu18')">11. 0+ Cookies Anymail</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/cq3oFEaTgcHuNZhM8')">12. 0+ Number Cookies</a>
-<a class="live-btn" onclick="handleClick('https://forms.gle/KVEoK7yG8ZEwemyi8')">13. 0+ Cookies Webmail</a>
-</div><!-- ===== VIDEO POPUP ===== --><div class="video-popup" id="videoPopup">
- <div class="popup-box">
-  <h3>⚠️ Notice</h3>
-  <p>আইডি জমা দিতে সমস্যা হলে ভিডিওটি দেখুন</p>
-  <button class="btn watch" onclick="watchVideo()">ভিডিও দেখেন</button>
-  <button class="btn skip" onclick="openForm()">ভিডিও দেখবো না</button>
- </div>
-</div><!-- ===== PRICE POPUP ===== --><div class="price-popup" id="pricePopup">
- <div class="price-box2">
-  <h3>🔥 আজকের একাউন্ট দাম</h3>
-  <div id="todayPriceText"></div>
-  <button class="price-btn" onclick="closeTodayPrice()">OK</button>
- </div>
-</div><!-- ===== BOTTOM ===== --><div class="bottom-bar">
- <a class="bottom-btn" href="https://youtube.com/@karim_tech_zone" target="_blank">📺 YouTube</a>
- <a class="bottom-btn" href="https://t.me/social_workars4" target="_blank">📢 Telegram</a>
- <a class="bottom-btn" href="https://t.me/social_workars1_bot" target="_blank">💳 Payment</a>
-</div><script>
-/* ===== EDIT AREA ===== */
-const OPEN_TIME="14:00";
-const CLOSE_TIME="19:00";
+<div class="price-popup" id="pricePopup">              
+ <div class="price-box2">              
+  <h3>🔥 আজকের একাউন্ট দাম</h3>              
+  <div id="todayPriceText"></div>              
+  <button class="price-btn" onclick="closeTodayPrice()">OK</button>              
+ </div>              
+</div>
+
+<div class="bottom-bar">              
+ <a class="bottom-btn" href="https://youtube.com/@karim_tech_zone" target="_blank">📺 YouTube</a>              
+ <a class="bottom-btn" href="https://t.me/social_workars4" target="_blank">📢 Telegram</a>              
+ <a class="bottom-btn" href="https://t.me/social_workars1_bot" target="_blank">💳 Payment</a>              
+</div>
+
+<script>
+/* ===== 12H → 24H AUTO CONVERTER ===== */
+function convertTo24(time12){
+  const clean = time12.trim().toUpperCase();
+  const parts = clean.split(" ");
+  if(parts.length !== 2) return "00:00";
+
+  const time = parts[0];
+  const modifier = parts[1];
+
+  let [hours, minutes] = time.split(":").map(Number);
+
+  if(modifier === "PM" && hours !== 12) hours += 12;
+  if(modifier === "AM" && hours === 12) hours = 0;
+
+  return `${hours.toString().padStart(2,"0")}:${minutes.toString().padStart(2,"0")}`;
+}
+
+/* SMART TIME */
+const OPEN_TIME_12 = "01:00 PM";
+const CLOSE_TIME_12 = "07:00 PM";
+
+const OPEN_TIME = convertTo24(OPEN_TIME_12);
+const CLOSE_TIME = convertTo24(CLOSE_TIME_12);
+
 const ACTIVE_IDS=[2,6,12];
+
 const PRICE_MAP={
- 2:{name:"0 plus friend 2fa number",price:"৬৳"},
- 0:{name:"",price:"৳"},
- 6:{name:"1000x pc clone cookies",price:"১৩৳"},
- 12:{name:"0 plus number cookies",price:"৪.৫০৳"}
+2:{name:"0 plus friend 2fa number",price:"৬৳"},
+0:{name:"",price:"৳"},
+6:{name:"1000x pc clone cookies",price:"১৩৳"},
+12:{name:"0 plus number cookies",price:"৪.৫০৳"}
 };
 
 let currentForm="";
 
 /* welcome */
-function closeWelcome(){document.getElementById("welcomePopup").style.display="none"}
+function closeWelcome(){
+  document.getElementById("welcomePopup").style.display="none";
+}
 
 /* datetime */
 function updateDateTime(){
- const now=new Date();
- document.getElementById("dateTimeBar").innerHTML=
- `📅 ${now.toLocaleDateString()} | ⏰ ${now.toLocaleTimeString()}`;
+  const now = new Date();
+
+  const bdTime = new Date(
+    now.toLocaleString("en-US", { timeZone: "Asia/Dhaka" })
+  );
+
+  const dateStr = bdTime.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric"
+  });
+
+  const timeStr = bdTime.toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true
+  });
+
+  document.getElementById("dateTimeBar").innerHTML =
+    `📅 ${dateStr} | ⏰ ${timeStr}`;
 }
-setInterval(updateDateTime,1000);updateDateTime();
+setInterval(updateDateTime,1000);
+updateDateTime();
 
 /* time */
 const toMin=t=>{const[a,b]=t.split(":").map(Number);return a*60+b};
@@ -276,85 +331,113 @@ const isOpenTime=()=>{const n=nowMin();return n>=toMin(OPEN_TIME)&&n<toMin(CLOSE
 
 /* countdown */
 function updateCountdown(){
- const now=new Date(),nowM=nowMin(),openM=toMin(OPEN_TIME),closeM=toMin(CLOSE_TIME);
- let diff=isOpenTime()?((closeM-nowM)*60-now.getSeconds()):((openM-nowM)*60-now.getSeconds());
- if(diff<0) diff+=24*3600;
- const h=Math.floor(diff/3600),m=Math.floor((diff%3600)/60),s=diff%60;
- document.getElementById("countdownText").innerHTML=
- isOpenTime()?`⏳ Close in: ${h}h ${m}m ${s}s`:`⏳ Open in: ${h}h ${m}m ${s}s`;
+  const now=new Date(),nowM=nowMin(),openM=toMin(OPEN_TIME),closeM=toMin(CLOSE_TIME);
+  let diff=isOpenTime()?((closeM-nowM)*60-now.getSeconds()):((openM-nowM)*60-now.getSeconds());
+  if(diff<0) diff+=24*3600;
+
+  const h=Math.floor(diff/3600),
+        m=Math.floor((diff%3600)/60),
+        s=diff%60;
+
+  document.getElementById("countdownText").innerHTML=
+    isOpenTime()
+      ? `⏳ Close in: ${h}h ${m}m ${s}s`
+      : `⏳ Open in: ${h}h ${m}m ${s}s`;
 }
 
 /* status */
+function format12(time24){
+  const [h,m] = time24.split(":").map(Number);
+  let hour = h % 12 || 12;
+  const ampm = h >= 12 ? "PM" : "AM";
+  return `${hour}:${m.toString().padStart(2,"0")} ${ampm}`;
+}
+
 function updateStatus(){
- document.getElementById("statusText").innerHTML=
- isOpenTime()?'🟢 LIVE OPEN':`🔴 CLOSED (${OPEN_TIME}-${CLOSE_TIME})`;
+  const open12  = format12(OPEN_TIME);
+  const close12 = format12(CLOSE_TIME);
+
+  document.getElementById("statusText").innerHTML =
+    isOpenTime()
+      ? `🟢 LIVE OPEN (${open12} - ${close12})`
+      : `🔴 CLOSED (${open12} - ${close12})`;
 }
 
 /* color */
 function applyActiveColors(){
- const buttons=document.querySelectorAll(".live-btn");
- const open=isOpenTime();
- buttons.forEach((btn,i)=>{
-   const id=i+1;
-   if(open && ACTIVE_IDS.includes(id)){
-     btn.classList.remove("live-off");
-   }else{
-     btn.classList.add("live-off");
-   }
- });
+  const buttons=document.querySelectorAll(".live-btn");
+  const open=isOpenTime();
+
+  buttons.forEach((btn,i)=>{
+    const id=i+1;
+    if(open && ACTIVE_IDS.includes(id)){
+      btn.classList.remove("live-off");
+    }else{
+      btn.classList.add("live-off");
+    }
+  });
 }
 
 /* click */
 function handleClick(link){
-
-  // ⛔ সময় বন্ধ হলে
   if(!isOpenTime()){
-    alert("⛔ এখন ফর্ম বন্ধ আছে");
+    alert("⛔ এখন ফর্ম বন্ধ আছে 🚫 উপরে যেই টাইম দেওয়া আছে সেটা দেখেন নটিশ পড়ে দেখেন");
     return;
   }
 
-  // 🔍 কোন বাটন চাপা হয়েছে বের করা
   const buttons=document.querySelectorAll(".live-btn");
   let clickedId=0;
 
   buttons.forEach((btn,i)=>{
-    if(btn===event.currentTarget){
-      clickedId=i+1;
-    }
+    if(btn===event.currentTarget) clickedId=i+1;
   });
 
-  // ❌ যদি active না হয় → তোমার মেসেজ
   if(!ACTIVE_IDS.includes(clickedId)){
-    alert("❌ এই একাউন্ট এখন বন্ধ। কালার করা বাটন গুলো টিপ দেন — এই গুলো চালু আছে, সেই একাউন্ট গুলো জমা দেন।");
+    alert("যেই গুলো কালার হয়েছে সেই একাউন্ট গুলো জমা দেন। আর যেই গুলো কালার হয় নাই সেই একাউন্ট গুলো এখন নেওয়া হচ্ছে না যদি নেওয়া হয় উপরে নটিশের মধ্যেই লিখা থাকবে");
     return;
   }
 
-  // ✅ চালু হলে আগের মতো
   currentForm=link;
   document.getElementById("videoPopup").style.display="flex";
 }
-function watchVideo(){window.open("https://t.me/c/3757075330/3")}
+
+function watchVideo(){
+  window.open("https://t.me/c/3757075330/3");
+}
+
 function openForm(){
- document.getElementById("videoPopup").style.display="none";
- window.location.href=currentForm;
+  document.getElementById("videoPopup").style.display="none";
+  window.location.href=currentForm;
 }
 
 /* price */
 function showTodayPrice(){
- let html="";
- ACTIVE_IDS.forEach(id=>{
-   if(PRICE_MAP[id]){
-     html+=`<p>👉 ${PRICE_MAP[id].name} = ${PRICE_MAP[id].price}</p>`;
-   }
- });
- document.getElementById("todayPriceText").innerHTML=html;
- document.getElementById("pricePopup").style.display="flex";
+  let html="";
+  ACTIVE_IDS.forEach(id=>{
+    if(PRICE_MAP[id]){
+      html+=`<p>👉 ${PRICE_MAP[id].name} = ${PRICE_MAP[id].price}</p>`;
+    }
+  });
+
+  document.getElementById("todayPriceText").innerHTML=html;
+  document.getElementById("pricePopup").style.display="flex";
 }
-function closeTodayPrice(){document.getElementById("pricePopup").style.display="none"}
 
-function gmailLogin(){window.open("https://accounts.google.com/")}
+function closeTodayPrice(){
+  document.getElementById("pricePopup").style.display="none";
+}
 
-setInterval(()=>{updateStatus();updateCountdown();applyActiveColors()},1000);
-updateStatus();updateCountdown();applyActiveColors();
-</script></body>
-  </html>
+function gmailLogin(){
+  window.open("https://accounts.google.com/");
+}
+
+setInterval(()=>{
+  updateStatus();
+  updateCountdown();
+  applyActiveColors();
+},1000);
+
+updateStatus();
+updateCountdown();
+applyActiveColors();
+</script></body></html>
