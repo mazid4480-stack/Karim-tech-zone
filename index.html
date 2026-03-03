@@ -1,205 +1,293 @@
 <!DOCTYPE html><html lang="bn">        <head>          <meta charset="UTF-8">            <meta name="viewport" content="width=device-width, initial-scale=1.0">              <title>Karim Tech Zone</title><style>              
 /* ===== IMPORTANT FIX ===== */              
-/* 🔥 bottom bar ঢাকবে না */              
 body{              
-  font-family:Arial;              
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;              
   margin:0;              
   text-align:center;              
-  background:#f4f6fb;              
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%); /* VIP Background */
+  min-height: 100vh;
   padding-bottom:120px; /* ⭐ খুব গুরুত্বপূর্ণ — height বাড়াতে পারো */              
-}        /* ===== LIVE DATE TIME ===== */      
+}        
+
+/* ===== LIVE DATE TIME ===== */      
 .datetime-bar{      
-background:#111;      
-color:#00e5ff;      
-font-weight:bold;      
-padding:6px 10px;      
-font-size:14px;      
-}  /* ===== WELCOME ===== */    
+  background: rgba(17, 17, 17, 0.9);      
+  color: #00e5ff;      
+  font-weight: bold;      
+  padding: 8px 10px;      
+  font-size: 14px;   
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);   
+}  
+
+/* ===== WELCOME ===== */    
 .welcome-popup{    
-position:fixed;    
-inset:0;    
-background:rgba(0,0,0,.6);    
-display:flex;    
-justify-content:center;    
-align-items:center;    
-z-index:99999;    
+  position:fixed;    
+  inset:0;    
+  background:rgba(0,0,0,.7);    
+  display:flex;    
+  justify-content:center;    
+  align-items:center;    
+  z-index:99999;    
+  backdrop-filter: blur(5px);
 }    
 .welcome-box{    
-background:#fff;    
-padding:24px;    
-width:90%;    
-max-width:380px;    
-border-radius:12px;    
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);    
+  padding:24px;    
+  width:90%;    
+  max-width:380px;    
+  border-radius:20px;    
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }    
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
 .welcome-btn{    
-display:block;    
-width:100%;    
-margin-top:10px;    
-padding:11px;    
-border:none;    
-border-radius:8px;    
-color:#fff;    
-font-weight:bold;    
+  display:block;    
+  width:100%;    
+  margin-top:12px;    
+  padding:12px;    
+  border:none;    
+  border-radius:12px;    
+  color:#fff;    
+  font-weight:bold; 
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }    
-.welcome-join{background:#0088cc}    
-.welcome-admin{background:#28a745}    
-.welcome-ok{background:#ff9800}  /* ===== TOPBAR ===== */  
+.welcome-btn:active { transform: scale(0.92); }
+.welcome-join{background: linear-gradient(45deg, #0088cc, #00bfff);}    
+.welcome-admin{background: linear-gradient(45deg, #28a745, #34ce57);}    
+.welcome-ok{background: linear-gradient(45deg, #ff9800, #ffc107); color: #000;}  
+
+/* ===== TOPBAR ===== */  
 .topbar{  
-background:linear-gradient(45deg,#111,#673ab7);  
-color:#fff;  
-padding:14px;  
-display:flex;  
-justify-content:space-between;  
-align-items:center;  
+  background: linear-gradient(90deg, #111111, #4a00e0, #8e2de2);  
+  color:#fff;  
+  padding:16px 20px;  
+  display:flex;  
+  justify-content:space-between;  
+  align-items:center;  
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }  
+.topbar b { font-size: 18px; letter-spacing: 1px; }
 .profile-btn{  
-background:#ff9800;  
-color:#fff;  
-padding:8px 16px;  
-border-radius:25px;  
-text-decoration:none;  
-}  
+  background: linear-gradient(45deg, #ff9800, #ff5722);  
+  color:#fff;  
+  padding:8px 18px;  
+  border-radius:25px;  
+  text-decoration:none;  
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(255, 87, 34, 0.4);
+  transition: all 0.2s;
+}
+.profile-btn:active { transform: scale(0.9); }
 
 /* notice */
 .notice{
-  margin:12px;
-  padding:12px;
-  border-radius:10px;
+  margin:15px;
+  padding:15px;
+  border-radius:12px;
   font-weight:bold;
   color:#fff;
   background:linear-gradient(90deg, #ff0000, #ff9800, #e91e63, #9c27b0, #ff0000);
   background-size:400% 100%;
-  border:2px solid #fff;
+  border:2px solid rgba(255,255,255,0.5);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   animation: noticeBg 4s linear infinite, noticeGlow 1.5s infinite alternate;
 }
-
 @keyframes noticeBg {
   0% { background-position: 100% 0; }
   100% { background-position: 0 0; }
 }
-
 @keyframes noticeGlow {
-  0% {
-    box-shadow: 0 0 8px #ff0000, 0 0 15px #ff9800;
-    border-color: #ff9800;
-  }
-  100% {
-    box-shadow: 0 0 20px #00e5ff, 0 0 35px #2979ff;
-    border-color: #00e5ff;
-  }
+  0% { box-shadow: 0 0 8px #ff0000, 0 0 15px #ff9800; border-color: #ff9800; }
+  100% { box-shadow: 0 0 20px #00e5ff, 0 0 35px #2979ff; border-color: #00e5ff; }
 }
 
 /* status */
-.status{font-size:18px;font-weight:bold}
-.countdown{margin-bottom:10px;font-weight:bold}
+.status{font-size:20px; font-weight:900; color: #111; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);}
+.countdown{margin-bottom:15px; font-weight:bold; color: #d32f2f; font-size: 16px;}
 
 /* grid */
 .grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-padding:12px;
-}
-.live-btn{
-background:linear-gradient(45deg,#ff3b3b,#ff6a00);
-color:#fff;
-padding:14px;
-border-radius:14px;
-text-decoration:none;
-display:block;
-font-weight:bold;
-box-shadow:0 4px 12px rgba(0,0,0,.2);
-}
-.live-off{
-background:#bdbdbd!important;
-box-shadow:none!important;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  padding:15px;
 }
 
-/* buttons */
-.btn{
-display:block;
-margin:10px auto;
-padding:12px;
-width:90%;
-border:none;
-border-radius:8px;
-font-size:16px;
-color:#fff;
+/* 🔥 VIP BUTTONS 🔥 */
+.live-btn{
+  position: relative;
+  background: linear-gradient(45deg, #ff0055, #ff7a00, #ff0055);
+  background-size: 200% auto;
+  color:#fff;
+  padding:16px 10px;
+  border-radius:16px;
+  text-decoration:none;
+  display:block;
+  font-weight:bold;
+  font-size: 14px;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 6px 15px rgba(255, 0, 85, 0.4), inset 0 2px 5px rgba(255,255,255,0.3);
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  z-index: 1;
 }
-.watch{background:#e91e63}
-.skip{background:#4caf50}
-.ok{background:#ff9800}
+
+/* VIP Button Hover & Active Animation */
+.live-btn:hover {
+  background-position: right center;
+  box-shadow: 0 8px 20px rgba(255, 0, 85, 0.6), inset 0 2px 5px rgba(255,255,255,0.4);
+  transform: translateY(-3px);
+}
+.live-btn:active {
+  transform: scale(0.92) translateY(2px);
+  box-shadow: 0 2px 10px rgba(255, 0, 85, 0.4);
+}
+
+/* Shine Effect Animation */
+.live-btn::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  animation: shine 3s infinite;
+  z-index: -1;
+}
+@keyframes shine {
+  0% { left: -100%; }
+  20% { left: 200%; }
+  100% { left: 200%; }
+}
+
+.live-off{
+  background: linear-gradient(145deg, #b0bec5, #90a4ae) !important;
+  color: #fff !important;
+  box-shadow: inset 0 2px 5px rgba(255,255,255,0.2) !important;
+  border-color: transparent !important;
+}
+.live-off::after { display: none; } /* Disable shine for off buttons */
+.live-off:active { transform: scale(0.95); }
+
+/* other buttons */
+.btn{
+  display:block;
+  margin:12px auto;
+  padding:14px;
+  width:90%;
+  border:none;
+  border-radius:12px;
+  font-size:16px;
+  font-weight: bold;
+  color:#fff;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+.btn:active { transform: scale(0.93); }
+.watch{background: linear-gradient(45deg, #e91e63, #c2185b);}
+.skip{background: linear-gradient(45deg, #4caf50, #2e7d32);}
+.ok{background: linear-gradient(45deg, #ff9800, #f57c00);}
 
 /* video popup */
 .video-popup{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.7);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:1000;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
+  backdrop-filter: blur(5px);
 }
 .popup-box{
-background:#fff;
-padding:25px;
-width:90%;
-max-width:400px;
-border-radius:12px;
+  background: #fff;
+  padding:25px;
+  width:90%;
+  max-width:400px;
+  border-radius:20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: popIn 0.4s ease-out;
 }
+.popup-box h3 { color: #d32f2f; }
 
 /* price popup */
 .price-popup{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.6);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:99999;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:99999;
+  backdrop-filter: blur(5px);
 }
 .price-box2{
-background:#fff;
-padding:22px;
-width:90%;
-max-width:360px;
-border-radius:12px;
+  background: #fff;
+  padding:25px;
+  width:90%;
+  max-width:360px;
+  border-radius:20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  animation: popIn 0.4s ease-out;
 }
+.price-box2 h3 { color: #ff5722; margin-top: 0; }
+.price-box2 p { background: #f4f6fb; padding: 10px; border-radius: 8px; font-weight: bold; border-left: 4px solid #ff9800;}
 .price-btn{
-background:#ff9800;
-color:#fff;
-padding:10px 18px;
-border:none;
-border-radius:8px;
-margin-top:10px;
+  background: linear-gradient(45deg, #ff9800, #ff5722);
+  color:#fff;
+  padding:12px 24px;
+  border:none;
+  border-radius:10px;
+  margin-top:15px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
 }
+.price-btn:active { transform: scale(0.9); }
 
-/* ===== BOTTOM BAR ===== */
+/* ===== BOTTOM BAR VIP ===== */
 .bottom-bar{
-position:fixed;
-bottom:10px;
-left:50%;
-transform:translateX(-50%);
-width:94%;
-max-width:520px;
-padding:10px;
-display:flex;
-gap:8px;
-backdrop-filter:blur(18px);
-background:rgba(0,0,0,.65);
-border-radius:20px;
-z-index:9999;
+  position:fixed;
+  bottom:15px;
+  left:50%;
+  transform:translateX(-50%);
+  width:92%;
+  max-width:520px;
+  padding:12px;
+  display:flex;
+  gap:10px;
+  backdrop-filter:blur(20px);
+  background:rgba(20, 20, 20, 0.75);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius:25px;
+  z-index:9999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 .bottom-btn{
-flex:1;
-color:#fff;
-text-decoration:none;
-font-size:13px;
-font-weight:bold;
-padding:11px 6px;
-border-radius:14px;
-background:linear-gradient(135deg,#ff512f,#dd2476);
+  flex:1;
+  color:#fff;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:bold;
+  padding:12px 5px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ff512f,#dd2476);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(221, 36, 118, 0.3);
 }
+.bottom-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(221, 36, 118, 0.5); }
+.bottom-btn:active { transform: scale(0.92); }
 </style></head><body> <div class="welcome-popup" id="welcomePopup">
 
  <div class="welcome-box">              
@@ -214,7 +302,7 @@ onclick="window.open('https://t.me/MD_Rezual_Karim')">
 </div><div class="datetime-bar" id="dateTimeBar">📅 Loading...</div><div class="topbar">              
  <b>Karim Tech Zone</b>              
  <a class="profile-btn" onclick="gmailLogin()">🔐 My Profile</a>              
-</div><div class="notice">📢 আসকে থেকে নেওয়া হবে শুধুমাত্র 3 ধরনের একাউন্ট 0 plus friend 2fa number / 0 plus number cookies / 1000x pc clone id জমা দেওয়ার লিঙ্ক বিকাল ১টা সময় চালু করা হবে এবং রাত ৭টা সময় বন্ধ করা হবে মানি ২টা থেকে ৭টা পযর্ন্ত যেই কোনো সময় একাউন্ট জমা দিতেই পারবেন </div><button class="btn ok" onclick="showTodayPrice()">💰 আজকের একাউন্ট দাম</button>        <div class="status" id="statusText">Checking...</div>              
+</div><div class="notice">📢 আসকে থেকে নেওয়া হবে শুধুমাত্র 2 ধরনের একাউন্ট 0 plus friend 2fa number / 0 plus number cookies জমা দেওয়ার লিঙ্ক বিকাল ১০টা সময় চালু করা হবে এবং রাত ৭টা সময় বন্ধ করা হবে মানি ১০টা থেকে ৭টা পযর্ন্ত যেই কোনো সময় একাউন্ট জমা দিতেই পারবেন </div><button class="btn ok" onclick="showTodayPrice()">💰 আজকের একাউন্ট দাম</button>        <div class="status" id="statusText">Checking...</div>              
 <div class="countdown" id="countdownText"></div>
 
 <div class="grid">              
@@ -275,18 +363,18 @@ function convertTo24(time12){
 }
 
 /* SMART TIME */
-const OPEN_TIME_12 = "01:00 PM";
+const OPEN_TIME_12 = "10:00 AM";
 const CLOSE_TIME_12 = "07:00 PM";
 
 const OPEN_TIME = convertTo24(OPEN_TIME_12);
 const CLOSE_TIME = convertTo24(CLOSE_TIME_12);
 
-const ACTIVE_IDS=[2,6,12];
+const ACTIVE_IDS=[2,12];
 
 const PRICE_MAP={
 2:{name:"0 plus friend 2fa number",price:"৬৳"},
 0:{name:"",price:"৳"},
-6:{name:"1000x pc clone cookies",price:"১৩৳"},
+0:{name:"",price:"৳"},
 12:{name:"0 plus number cookies",price:"৪.৫০৳"}
 };
 
@@ -381,7 +469,7 @@ function applyActiveColors(){
 /* click */
 function handleClick(link){
   if(!isOpenTime()){
-    alert("⛔ এখন ফর্ম বন্ধ আছে 🚫 উপরে যেই টাইম দেওয়া আছে সেটা দেখেন নটিশ পড়ে দেখেন");
+    alert("⛔ এখন ফর্ম বন্ধ আছে");
     return;
   }
 
@@ -393,7 +481,7 @@ function handleClick(link){
   });
 
   if(!ACTIVE_IDS.includes(clickedId)){
-    alert("যেই গুলো কালার হয়েছে সেই একাউন্ট গুলো জমা দেন। আর যেই গুলো কালার হয় নাই সেই একাউন্ট গুলো এখন নেওয়া হচ্ছে না যদি নেওয়া হয় উপরে নটিশের মধ্যেই লিখা থাকবে");
+    alert("❌ এই একাউন্ট এখন বন্ধ। কালার করা বাটন গুলো টিপ দেন — এই গুলো চালু আছে, সেই একাউন্ট গুলো জমা দেন।");
     return;
   }
 
